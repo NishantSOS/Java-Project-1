@@ -125,3 +125,5 @@ public class project {
         System.out.println(student.toString());
     }
 }
+
+//This is just a sample code that we wrote in small time .Further changes will be done after our mid term.
