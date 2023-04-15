@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.util.InputMismatchException;
 class Student{
     String name;
     String roll_number;
@@ -111,10 +112,19 @@ class Hostel{
 public class HMS{
     public static void main(String[] args){
         Scanner s=new Scanner(System.in);
-        System.out.println("Enter total number of students : ");
-        int Students_num=s.nextInt();
-        System.out.println("Enter the number of available rooms : ");
-        int Rooms_num=s.nextInt();
+        int Students_num = 0;
+        int Rooms_num = 0;
+        try {
+            System.out.println("Enter total number of students: ");
+            Students_num = s.nextInt();
+            s.nextLine(); // consume leftover newline character
+            System.out.println("Enter the number of available rooms: ");
+            Rooms_num = s.nextInt();
+            s.nextLine(); 
+        } catch (InputMismatchException e) {
+            System.out.println("Error: Please enter a valid integer value.");
+            System.exit(0);
+        }
         Hostel hostel=new Hostel(Students_num,Rooms_num);
         while(true){
             System.out.println("Enter 1 to add a student");
